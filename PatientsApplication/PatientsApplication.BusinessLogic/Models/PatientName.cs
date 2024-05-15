@@ -4,7 +4,7 @@ namespace PatientsApplication.BusinessLogic.Models
 {
     public class PatientName
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
 
         public string Use { get; set; }
 

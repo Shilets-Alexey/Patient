@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using PatientsApplication.BusinessLogic.Mapping;
-using PatientsApplication.BusinessLogic.Repositories;
 using PatientsApplication.BusinessLogic.Services;
 using PatientsApplication.DataAccess.Context;
+using PatientsApplication.DataAccess.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 string connection = builder.Configuration.GetConnectionString("DefaultConnection");
