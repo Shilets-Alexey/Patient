@@ -2,7 +2,7 @@
 
 namespace PatientsApplication.DataAccess.Entities
 {
-    public class Patients : BaseEntity
+    public class Patient : BaseEntity
     {
         public string Use { get; set; }
 
@@ -14,8 +14,8 @@ namespace PatientsApplication.DataAccess.Entities
         [Required]
         public DateTime BirthDate { get; set; }
 
-        public Active Active { get; set; }
+        /*public Active Active { get; set; }
 
-        public Genders Gender { get; set; }
+        public Gender Gender { get; set; }*/
     }
 }

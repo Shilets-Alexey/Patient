@@ -1,4 +1,4 @@
 ﻿namespace PatientsApplication.DataAccess.Entities
 {
-    public class Genders : BaseLookup{}
+    public class Active : BaseLookup { }
 }

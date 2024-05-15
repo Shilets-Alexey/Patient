@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PatientsApplication.BusinessLogic.Models;
 using PatientsApplication.BusinessLogic.Services;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System;
 
 namespace PatientsApplication.Web.Controllers
 {

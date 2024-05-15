@@ -2,9 +2,6 @@
 using PatientsApplication.BusinessLogic.Models;
 using PatientsApplication.DataAccess.Context;
 using PatientsApplication.DataAccess.Entities;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System;
 
 namespace PatientsApplication.BusinessLogic.Repositories
 {

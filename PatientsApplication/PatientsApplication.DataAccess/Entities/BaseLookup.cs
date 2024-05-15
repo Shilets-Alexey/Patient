@@ -2,9 +2,9 @@
 
 namespace PatientsApplication.DataAccess.Entities
 {
-    public class BaseLookup : BaseEntity
+    public abstract class BaseLookup : BaseEntity
     {
         [Required]
-        public string Name {  get; set; }
+        public string Name { get; set; }
     }
 }

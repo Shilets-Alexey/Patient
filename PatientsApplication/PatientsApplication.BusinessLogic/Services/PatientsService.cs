@@ -1,8 +1,5 @@
 ﻿using PatientsApplication.BusinessLogic.Models;
 using PatientsApplication.BusinessLogic.Repositories;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System;
 
 namespace PatientsApplication.BusinessLogic.Services
 {
