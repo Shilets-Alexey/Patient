@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PatientsApplication.BusinessLogic.Models;
 using PatientsApplication.BusinessLogic.Services;
+using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace PatientsApplication.Web.Controllers
 {
@@ -17,6 +21,12 @@ namespace PatientsApplication.Web.Controllers
 
         [HttpGet]
         public ServiceResult<IEnumerable<PatientDto>> GetPatients()
+        {
+            return _patientsService.GetPatients();
+        }
+
+        [HttpGet, Route("date")]
+        public ServiceResult<IEnumerable<PatientDto>> GetPatientsByDate(string birthday)
         {
             return _patientsService.GetPatients();
         }

@@ -15,8 +15,12 @@ namespace PatientsApplication.DataAccess.Entities
         [Required]
         public DateTime BirthDate { get; set; }
 
-        /*public Active Active { get; set; }
+        public Guid? ActiveId { get; set; }
 
-        public Gender Gender { get; set; }*/
+        public Active Active { get; set; }
+
+        public Guid? GenderId { get; set; }
+
+        public Gender Gender { get; set; }
     }
 }

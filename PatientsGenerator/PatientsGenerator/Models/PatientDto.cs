@@ -1,8 +1,7 @@
-﻿using PatientsApplication.DataAccess.Entities;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace PatientsApplication.BusinessLogic.Models
+namespace PatientsGenerator.Models
 {
     public class PatientDto
     {
@@ -10,7 +9,6 @@ namespace PatientsApplication.BusinessLogic.Models
 
         public string Gender { get; set; }
 
-        [Required()]
         public DateTime BirthDate { get; set; }
 
         public bool Active { get; set; }

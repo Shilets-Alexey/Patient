@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using PatientsApplication.BusinessLogic.Models;
 using PatientsApplication.DataAccess.Entities;
+using System;
 
 namespace PatientsApplication.BusinessLogic.Mapping
 {
@@ -10,17 +11,19 @@ namespace PatientsApplication.BusinessLogic.Mapping
         {
 
             CreateMap<Patient, PatientDto>()
-                .ForPath(dest => dest.Name.Id, opt => opt.MapFrom(patien => patien.Id))
-                .ForPath(dest => dest.Name.Use, opt => opt.MapFrom(patien => patien.Use))
-                .ForPath(dest => dest.Name.Family, opt => opt.MapFrom(patien => patien.Family))
-                .ForPath(dest => dest.Name.Given, opt => opt.MapFrom(patien => string.IsNullOrWhiteSpace(patien.Given) ? new string[0] : patien.Given.Split(',', StringSplitOptions.None)))
-                .ForMember("BirthDate", opt => opt.MapFrom(patien => patien.BirthDate));
+                .ForPath(dest => dest.Name.Id, opt => opt.MapFrom(patient => patient.Id))
+                .ForPath(dest => dest.Name.Use, opt => opt.MapFrom(patient => patient.Use))
+                .ForPath(dest => dest.Name.Family, opt => opt.MapFrom(patient => patient.Family))
+                .ForPath(dest => dest.Name.Given, opt => opt.MapFrom(patient => string.IsNullOrWhiteSpace(patient.Given) ? new string[0] : patient.Given.Split(',', StringSplitOptions.None)))
+                .ForMember(dest => dest.Active, opt => opt.MapFrom(patient => patient.Active.Name))
+                .ForMember(dest => dest.Gender, opt => opt.MapFrom(patient => patient.Gender.Name));
             CreateMap<PatientDto, Patient>()
-                .ForMember("Id", opt => opt.MapFrom(patien => patien.Name.Id))
-                .ForMember("Family", opt => opt.MapFrom(patien => patien.Name.Family))
-                .ForMember("Use", opt => opt.MapFrom(patien => patien.Name.Use))
-                .ForMember("Given", opt => opt.MapFrom(patien => string.Join(',', patien.Name.Given)))
-                .ForMember("BirthDate", opt => opt.MapFrom(patien => patien.BirthDate));
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(patient => patient.Name.Id))
+                .ForMember(dest => dest.Family, opt => opt.MapFrom(patient => patient.Name.Family))
+                .ForMember(dest => dest.Use, opt => opt.MapFrom(patient => patient.Name.Use))
+                .ForMember(dest => dest.Given, opt => opt.MapFrom(patient => string.Join(',', patient.Name.Given)))
+                .ForMember(dest => dest.Active, opt => opt.Ignore())
+                .ForMember(dest => dest.Gender, opt => opt.Ignore());
         }
     }
 }

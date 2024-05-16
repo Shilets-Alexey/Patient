@@ -1,6 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PatientsApplication.DataAccess.Context;
 using PatientsApplication.DataAccess.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PatientsApplication.DataAccess.Repositories
 {
@@ -25,7 +29,7 @@ namespace PatientsApplication.DataAccess.Repositories
 
         public Patient GetPatient(Guid patientId)
         {
-            return _applicationDbContext.Patients.FirstOrDefault(patient => patient.Id == patientId);
+            return _applicationDbContext.Patients.AsNoTracking().FirstOrDefault(patient => patient.Id == patientId);
         }
 
         public async Task<Guid> CreatePatient(Patient patient)
@@ -63,7 +67,17 @@ namespace PatientsApplication.DataAccess.Repositories
         public async Task<int> UpdatePatients(IEnumerable<Patient> patients)
         {
             _applicationDbContext.Patients.UpdateRange(patients);
-            return _applicationDbContext.SaveChanges();
+            return await _applicationDbContext.SaveChangesAsync();
+        }
+
+        public int Count(IEnumerable<Guid> patientsId)
+        {
+            return _applicationDbContext.Patients.AsQueryable().Count(patient => patientsId.Contains(patient.Id));
+        }
+
+        public int Count()
+        {
+            return _applicationDbContext.Patients.Count();
         }
     }
 }

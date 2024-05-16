@@ -1,11 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace PatientsApplication.BusinessLogic.Models
+namespace PatientsGenerator.Models
 {
     public class PatientName
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
 
         public string Use { get; set; }
 

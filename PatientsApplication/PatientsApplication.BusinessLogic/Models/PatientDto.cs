@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using PatientsApplication.DataAccess.Entities;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace PatientsApplication.BusinessLogic.Models
 {
@@ -11,6 +13,6 @@ namespace PatientsApplication.BusinessLogic.Models
         [Required()]
         public DateTime BirthDate { get; set; }
 
-        public string Active { get; set; }
+        public bool Active { get; set; }
     }
 }

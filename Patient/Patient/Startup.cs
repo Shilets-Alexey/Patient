@@ -1,4 +1,3 @@
-using AuthorizationApp.BusinessLogic.Mapping;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -7,9 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using PatientApplication.Repositories;
-using PatientApplication.Services;
+using PatientsApplication.BusinessLogic.Mapping;
+using PatientsApplication.BusinessLogic.Services;
 using PatientsApplication.DataAccess.Context;
+using PatientsApplication.DataAccess.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +41,8 @@ namespace PatientApplication
             services.AddSingleton(mapper);
             services.AddTransient<PatientsService>();
             services.AddTransient<PatientsRepository>();
+            services.AddTransient<ActiveRepository>();
+            services.AddTransient<GenderRepository>();
             services.AddSwaggerGen();
 
         }
