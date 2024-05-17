@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PatientsApplication.Web</name>
+    </assembly>
+    <members>
+        <member name="T:PatientsApplication.Web.Controllers.PatientsController">
+            <summary>
+            Patient controller
+            </summary>
+        </member>
+        <member name="M:PatientsApplication.Web.Controllers.PatientsController.#ctor(PatientsApplication.BusinessLogic.Interfaces.IEntityService{PatientsApplication.BusinessLogic.Models.PatientDto})">
+            <summary>
+            Patient constructor
+            </summary>
+        </member>
+        <member name="M:PatientsApplication.Web.Controllers.PatientsController.Get">
+            <summary>
+            Get all patients
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PatientsApplication.Web.Controllers.PatientsController.GetRange(System.Guid[])">
+            <summary>
+            Get patients range
+            </summary>
+            <param name="patientsId">patient ids</param>
+            <returns></returns>
+        </member>
+        <member name="M:PatientsApplication.Web.Controllers.PatientsController.GetById(System.Guid)">
+            <summary>
+            Get patient by id
+            </summary>
+            <param name="patientId">patient id</param>
+            <returns></returns>
+        </member>
+        <member name="M:PatientsApplication.Web.Controllers.PatientsController.Create(PatientsApplication.BusinessLogic.Models.PatientDto)">
+            <summary>
+            Create patient
+            </summary>
+            <param name="patient">patient info</param>
+            <returns></returns>
+        </member>
+        <member name="M:PatientsApplication.Web.Controllers.PatientsController.CreateRange(PatientsApplication.BusinessLogic.Models.PatientDto[])">
+            <summary>
+            Create patients range
+            </summary>
+            <param name="patients">patients</param>
+            <returns></returns>
+        </member>
+        <member name="M:PatientsApplication.Web.Controllers.PatientsController.Delete(System.Guid)">
+            <summary>
+            Dalete patient
+            </summary>
+            <param name="patientId">patient id</param>
+            <returns></returns>
+        </member>
+        <member name="M:PatientsApplication.Web.Controllers.PatientsController.DeleteRange(System.Guid[])">
+            <summary>
+            Dalete patients range
+            </summary>
+            <param name="patientsId">patient ids</param>
+            <returns></returns>
+        </member>
+        <member name="M:PatientsApplication.Web.Controllers.PatientsController.Update(PatientsApplication.BusinessLogic.Models.PatientDto)">
+            <summary>
+            Update patient info
+            </summary>
+            <param name="patient">patient info</param>
+            <returns></returns>
+        </member>
+        <member name="M:PatientsApplication.Web.Controllers.PatientsController.UpdateRange(PatientsApplication.BusinessLogic.Models.PatientDto[])">
+            <summary>
+            Update patiens
+            </summary>
+            <param name="patients">patients range</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

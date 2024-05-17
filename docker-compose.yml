@@ -1,0 +1,48 @@
+version: "3.9"
+networks:
+  patientapplication_network:
+    driver: bridge
+services:
+  patientapplication_db:
+    container_name: patientapplication_db_container
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Test@1234
+    ports:
+      - "1400:1433"
+    networks:
+      - patientapplication_network
+    volumes:
+      - PatientApplication_Data:/var/lib/mssql/data
+  patientapplication:
+    container_name: patientapplication_container
+    build: 
+      context: .
+      dockerfile: PatientsApplication\PatientsApplication.Web\Dockerfile
+    ports:
+      - "7162:80"
+      - "5003:443"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      #- ASPNETCORE_URLS=https://+:443;http://+:80
+      #- ASPNETCORE_Kestrel__Certificates__Default__Password=123456
+      #- ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    #volumes:
+      #- ~/.aspnet/https:/https:ro*#
+    networks:
+      - patientapplication_network
+    depends_on:
+      - patientapplication_db
+  patiensgenerator:
+    container_name: patiensgenerator_container
+    build: 
+      context: .
+      dockerfile: \PatientsGenerator\PatientsGenerator\Dockerfile
+    networks:
+      - patientapplication_network
+    depends_on:
+      - patientapplication
+  
+volumes:
+  PatientApplication_Data:

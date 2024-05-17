@@ -1,14 +1,15 @@
 ﻿using PatientsApplication.BusinessLogic.Models;
 using PatientsApplication.DataAccess.Entities;
-using PatientsApplication.DataAccess.Repositories;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PatientsApplication.BusinessLogic.Helpers
 {
     public class ValidationHelper
     {
-        public static ValidationResult ValidatePatients(IEnumerable<Patient> patients, int inputPatientsCount)
+        public static ValidationResult ValidatePatients(int patientsCount, int patientsDtoCount)
         {
-            if(patients.Count() < inputPatientsCount)
+            if (patientsCount != patientsDtoCount)
             {
                 return ValidationResult.ValidationProblem(new Dictionary<string, string[]>() { { "patients", new string[] { "Not all ids contained in the request have records" } } });
             }

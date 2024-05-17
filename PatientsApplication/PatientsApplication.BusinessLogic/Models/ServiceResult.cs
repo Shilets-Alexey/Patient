@@ -3,15 +3,29 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PatientsApplication.BusinessLogic.Models
 {
+    /// <summary>
+    /// Service result
+    /// </summary>
     public class ServiceResult<TKey>
     {
-
+        /// <summary>
+        /// Result
+        /// </summary>
         public TKey Result { get; private set; }
 
+        /// <summary>
+        /// Error message
+        /// </summary>
         public string ErrorMessage { get; private set; }
 
+        /// <summary>
+        /// Success
+        /// </summary>
         public bool Success { get; private set; }
 
+        /// <summary>
+        /// Validation Result
+        /// </summary>
         public ValidationResult ValidationResult { get; private set; }
 
         private ServiceResult() { }
