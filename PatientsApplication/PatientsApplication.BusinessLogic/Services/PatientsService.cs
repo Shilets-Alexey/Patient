@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using PatientsApplication.BusinessLogic.Fhir;
 using PatientsApplication.BusinessLogic.Helpers;
 using PatientsApplication.BusinessLogic.Interfaces;
 using PatientsApplication.BusinessLogic.Models;
@@ -114,6 +115,18 @@ namespace PatientsApplication.BusinessLogic.Services
                                                 opt => PatientsHelper.AfterMap(opt, _genders, _actives, existPatient.CreatedOn));
             });
             return ServiceResult<int>.Create(await _patientsRepository.UpdateRange(patients));
+        }
+
+        public ServiceResult<IEnumerable<T>> GetByDate(string dateDto)
+        {
+            FhirDate fhirDate = new FhirDate(dateDto);
+            ValidationResult validationInfo = ValidationHelper.ValidateFhirDate(fhirDate);
+            if (!validationInfo.IsValid)
+            {
+                return ServiceResult<IEnumerable<T>>.Create(validationInfo);
+            }
+            FhirDateTimeFilter fhirDateTimeFilter = new FhirDateTimeFilter(fhirDate);
+            return ServiceResult<IEnumerable<T>>.Create(_patientsRepository.GetByDate(fhirDateTimeFilter.Get()).Select(patient => _mapper.Map<T>(patient)));
         }
     }
 }

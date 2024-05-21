@@ -8,5 +8,7 @@ namespace PatientsApplication.DataAccess.Interfaces
         public int Count(IEnumerable<Guid> patientsId);
 
         public int Count();
+
+        public IEnumerable<Patient> GetByDate(Func<Patient, bool> filterMethod);
     }
 }

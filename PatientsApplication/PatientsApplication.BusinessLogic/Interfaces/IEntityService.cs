@@ -22,5 +22,7 @@ namespace PatientsApplication.BusinessLogic.Interfaces
         public Task<ServiceResult<int>> Update(TEntityDto record);
 
         public Task<ServiceResult<int>> UpdateRange(TEntityDto[] records);
+
+        public ServiceResult<IEnumerable<TEntityDto>> GetByDate(string dateDto);
     }
 }

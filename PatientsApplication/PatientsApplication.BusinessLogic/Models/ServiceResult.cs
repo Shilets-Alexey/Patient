@@ -30,17 +30,17 @@ namespace PatientsApplication.BusinessLogic.Models
 
         private ServiceResult() { }
 
-        public static ServiceResult<TKey> Create() => new ServiceResult<TKey>() { Result = Activator.CreateInstance<TKey>(), ValidationResult = new ValidationResult(), Success = true };
+        public static ServiceResult<TKey> Create() => new ServiceResult<TKey>() { Result = default, ValidationResult = new ValidationResult(), Success = true };
 
         public static ServiceResult<TKey> Create(TKey data) => new ServiceResult<TKey>() { Result = data, ValidationResult = new ValidationResult(), Success = true };
 
-        public static ServiceResult<TKey> Create(ValidationResult validationResult) => new ServiceResult<TKey>() { ValidationResult = validationResult, Result = Activator.CreateInstance<TKey>(), Success = true };
+        public static ServiceResult<TKey> Create(ValidationResult validationResult) => new ServiceResult<TKey>() { ValidationResult = validationResult, Result = default, Success = true };
 
         public static ServiceResult<TKey> Create(TKey data, ValidationResult validationResult) => new ServiceResult<TKey>() { Result = data, ValidationResult = validationResult, Success = true };
 
-        public static ServiceResult<TKey> Error(Exception ex) => new ServiceResult<TKey>() { Result = Activator.CreateInstance<TKey>(), ValidationResult = new ValidationResult(), Success = false, ErrorMessage = ex.Message };
+        public static ServiceResult<TKey> Error(Exception ex) => new ServiceResult<TKey>() { Result = default, ValidationResult = new ValidationResult(), Success = false, ErrorMessage = ex.Message };
 
-        public static ServiceResult<TKey> Error(string errorMessage) => new ServiceResult<TKey>() { Result = Activator.CreateInstance<TKey>(), ValidationResult = new ValidationResult(), Success = false, ErrorMessage = errorMessage };
+        public static ServiceResult<TKey> Error(string errorMessage) => new ServiceResult<TKey>() { Result = default, ValidationResult = new ValidationResult(), Success = false, ErrorMessage = errorMessage };
 
         public static ServiceResult<TKey> Error(TKey data, Exception ex) => new ServiceResult<TKey>() { Result = data, ValidationResult = new ValidationResult(), Success = false, ErrorMessage = ex.Message };
 

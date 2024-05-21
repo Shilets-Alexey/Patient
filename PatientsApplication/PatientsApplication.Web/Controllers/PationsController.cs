@@ -2,10 +2,14 @@
 using PatientsApplication.BusinessLogic.Interfaces;
 using PatientsApplication.BusinessLogic.Models;
 using PatientsApplication.BusinessLogic.Services;
+using PatientsApplication.DataAccess.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace PatientsApplication.Web.Controllers
 {
@@ -124,5 +128,23 @@ namespace PatientsApplication.Web.Controllers
         {
             return await _patientsService.UpdateRange(patients);
         }
+
+        /// <summary>
+        /// Get Patients by birthDay
+        /// </summary>
+        /// <param name="dateDto">date in string with prefix</param>
+        /// <returns></returns>
+        [HttpGet, Route("date")]
+        public ServiceResult<IEnumerable<PatientDto>> GetByDate(string dateDto)
+        {
+            if (string.IsNullOrEmpty(dateDto))
+            {
+                throw new ArgumentNullException("dateDto");
+            }
+            return _patientsService.GetByDate(dateDto);
+        }
     }
 }
+
+
+

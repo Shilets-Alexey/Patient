@@ -76,5 +76,12 @@
             <param name="patients">patients range</param>
             <returns></returns>
         </member>
+        <member name="M:PatientsApplication.Web.Controllers.PatientsController.GetByDate(System.String)">
+            <summary>
+            Get Patients by birthDay
+            </summary>
+            <param name="dateDto">date in string with prefix</param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

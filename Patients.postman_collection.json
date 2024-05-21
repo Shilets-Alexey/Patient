@@ -4,42 +4,175 @@
 		"name": "Patients",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "16571879",
-		"_collection_link": "https://red-station-619850.postman.co/workspace/%D1%84~24b65051-37f5-4e3c-a16b-cb06c03c07ef/collection/16571879-2189fb1f-8d45-46e1-87a9-37dad997eb74?action=share&source=collection_link&creator=16571879"
+		"_collection_link": "https://red-station-619850.postman.co/workspace/%25D1%2584~24b65051-37f5-4e3c-a16b-cb06c03c07ef/collection/16571879-2189fb1f-8d45-46e1-87a9-37dad997eb74?action=share&source=collection_link&creator=16571879"
 	},
 	"item": [
+		{
+			"name": "SearchByDate",
+			"item": [
+				{
+					"name": "GetByBirthday_prefix_eq",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7162/patients/date?dateDto=eq2013-01-14",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7162",
+							"path": [
+								"patients",
+								"date"
+							],
+							"query": [
+								{
+									"key": "dateDto",
+									"value": "eq2013-01-14"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByBirthday_prefix_ne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7162/patients/date?dateDto=ne2013-01-14T23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7162",
+							"path": [
+								"patients",
+								"date"
+							],
+							"query": [
+								{
+									"key": "dateDto",
+									"value": "ne2013-01-14T23"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByBirthday_prefix_lt",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7162/patients/date?dateDto=lt2013-01-14T10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7162",
+							"path": [
+								"patients",
+								"date"
+							],
+							"query": [
+								{
+									"key": "dateDto",
+									"value": "lt2013-01-14T10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByBirthday_prefix_gt",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7162/patients/date?dateDto=gt2013-01-14T10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7162",
+							"path": [
+								"patients",
+								"date"
+							],
+							"query": [
+								{
+									"key": "dateDto",
+									"value": "gt2013-01-14T10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByBirthday_prefix_ge",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7162/patients/date?dateDto=ge2013-01-14T10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7162",
+							"path": [
+								"patients",
+								"date"
+							],
+							"query": [
+								{
+									"key": "dateDto",
+									"value": "ge2013-01-14T10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByBirthday_prefix_le",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7162/patients/date?dateDto=le2013-01-14T10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7162",
+							"path": [
+								"patients",
+								"date"
+							],
+							"query": [
+								{
+									"key": "dateDto",
+									"value": "le2013-01-14T10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "GetPatients",
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "http://localhost:7162/patients",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "7162",
-					"path": [
-						"patients"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "CreatePatient",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"name\": {\r\n    \"id\": \"97cafa47-4c00-4803-80b0-bff71698c341\",\r\n    \"use\": \"official\",\r\n    \"family\": \"пользователь\",\r\n    \"given\": [\r\n      \"пользователь\",\r\n      \"пользович\"\r\n    ]\r\n  },\r\n  \"gender\": \"male\",\r\n  \"birthDate\": \"1965-01-07T10:29:44.559Z\",\r\n  \"active\": true\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "http://localhost:7162/patients",
 					"protocol": "http",
@@ -119,13 +252,41 @@
 			"response": []
 		},
 		{
+			"name": "CreatePatient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": {\r\n    \"id\": \"97cafa47-4c00-4803-80b0-bff71698c341\",\r\n    \"use\": \"official\",\r\n    \"family\": \"пользователь 2010-05-07\",\r\n    \"given\": [\r\n      \"пользователь\",\r\n      \"пользович\"\r\n    ]\r\n  },\r\n  \"gender\": \"male\",\r\n  \"birthDate\": \"2013-01-13\",\r\n  \"active\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7162/patients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7162",
+					"path": [
+						"patients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "CreatePatiens",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"name\": {\r\n            \"id\": \"6b5d3d95-4757-42d7-b9c6-491d0689ce6d\",\r\n            \"use\": \"official\",\r\n            \"family\": \"пользователь2\",\r\n            \"given\": [\r\n                \"пользователь2\",\r\n                \"пользович2\"\r\n            ]\r\n        },\r\n        \"gender\": \"female\",\r\n        \"birthDate\": \"1965-01-07T10:29:44.559Z\",\r\n        \"active\": false\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"id\": \"baa30b30-ae7a-4cb3-9518-2151bc4b3ef9\",\r\n            \"use\": \"official\",\r\n            \"family\": \"пользователь3\",\r\n            \"given\": [\r\n                \"пользователь3\",\r\n                \"пользович3\"\r\n            ]\r\n        },\r\n        \"gender\": \"other\",\r\n        \"birthDate\": \"1965-01-07T10:29:44.559Z\",\r\n        \"active\": true\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"id\": \"8d83ed77-cb74-40c9-8f18-154a27d65889\",\r\n            \"use\": \"official\",\r\n            \"family\": \"пользователь4\",\r\n            \"given\": [\r\n                \"пользователь4\",\r\n                \"пользович4\"\r\n            ]\r\n        },\r\n        \"gender\": \"unknown\",\r\n        \"birthDate\": \"1965-01-07T10:29:44.559Z\",\r\n        \"active\": true\r\n    }\r\n]",
+					"raw": "[\r\n    {\r\n        \"name\": {\r\n            \"id\": \"6b5d3d95-4757-42d7-b9c6-491d0689ce6d\",\r\n            \"use\": \"official\",\r\n            \"family\": \"пользователь2 2013-01-14\",\r\n            \"given\": [\r\n                \"пользователь2\",\r\n                \"пользович2\"\r\n            ]\r\n        },\r\n        \"gender\": \"female\",\r\n        \"birthDate\": \"2013-01-14\",\r\n        \"active\": false\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"id\": \"baa30b30-ae7a-4cb3-9518-2151bc4b3ef9\",\r\n            \"use\": \"official\",\r\n            \"family\": \"пользователь3 2013-01-14T10\",\r\n            \"given\": [\r\n                \"пользователь3\",\r\n                \"пользович3\"\r\n            ]\r\n        },\r\n        \"gender\": \"other\",\r\n        \"birthDate\": \"2013-01-14T10:00\",\r\n        \"active\": true\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"id\": \"8d83ed77-cb74-40c9-8f18-154a27d65889\",\r\n            \"use\": \"official\",\r\n            \"family\": \"пользователь4 2013-01-14T23:00\",\r\n            \"given\": [\r\n                \"пользователь4\",\r\n                \"пользович4\"\r\n            ]\r\n        },\r\n        \"gender\": \"unknown\",\r\n        \"birthDate\": \"2013-01-14T23:00\",\r\n        \"active\": true\r\n    }\r\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -154,7 +315,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": {\r\n    \"id\": \"97cafa47-4c00-4803-80b0-bff71698c341\",\r\n    \"use\": \"official\",\r\n    \"family\": \"пользовательUpdate\",\r\n    \"given\": [\r\n      \"пользовательUpdate\",\r\n      \"пользовичUpdate\"\r\n    ]\r\n  },\r\n  \"gender\": \"male\",\r\n  \"birthDate\": \"1979-01-07T10:29:44.559Z\",\r\n  \"active\": true\r\n}",
+					"raw": "{\r\n  \"name\": {\r\n    \"id\": \"97cafa47-4c00-4803-80b0-bff71698c341\",\r\n    \"use\": \"official\",\r\n    \"family\": \"пользователь 2013-01-13Updated\",\r\n    \"given\": [\r\n      \"пользователь\",\r\n      \"пользович\"\r\n    ]\r\n  },\r\n  \"gender\": \"male\",\r\n  \"birthDate\": \"2013-01-13\",\r\n  \"active\": true\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -182,7 +343,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"name\": {\r\n            \"id\": \"6b5d3d95-4757-42d7-b9c6-491d0689ce6d\",\r\n            \"use\": \"official\",\r\n            \"family\": \"пользователь2Update\",\r\n            \"given\": [\r\n                \"пользователь2Update\",\r\n                \"пользович2Update\"\r\n            ]\r\n        },\r\n        \"gender\": \"other\",\r\n        \"birthDate\": \"1965-01-07T10:29:44.559Z\",\r\n        \"active\": true\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"id\": \"baa30b30-ae7a-4cb3-9518-2151bc4b3ef9\",\r\n            \"use\": \"official\",\r\n            \"family\": \"пользователь3Update\",\r\n            \"given\": [\r\n                \"пользователь3Update\",\r\n                \"пользович3Update\"\r\n            ]\r\n        },\r\n        \"gender\": \"female\",\r\n        \"birthDate\": \"1965-01-07T10:29:44.559Z\",\r\n        \"active\": false\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"id\": \"8d83ed77-cb74-40c9-8f18-154a27d65889\",\r\n            \"use\": \"official\",\r\n            \"family\": \"пользователь4Update\",\r\n            \"given\": [\r\n                \"пользователь4Update\",\r\n                \"пользович4Update\"\r\n            ]\r\n        },\r\n        \"gender\": \"unknown\",\r\n        \"birthDate\": \"1965-01-07T10:29:44.559Z\",\r\n        \"active\": false\r\n    }\r\n]",
+					"raw": "[\r\n    {\r\n        \"name\": {\r\n            \"id\": \"6b5d3d95-4757-42d7-b9c6-491d0689ce6d\",\r\n            \"use\": \"official\",\r\n            \"family\": \"пользователь2 2013-01-14 Updated\",\r\n            \"given\": [\r\n                \"пользователь2\",\r\n                \"пользович2\"\r\n            ]\r\n        },\r\n        \"gender\": \"female\",\r\n        \"birthDate\": \"2013-01-14\",\r\n        \"active\": false\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"id\": \"baa30b30-ae7a-4cb3-9518-2151bc4b3ef9\",\r\n            \"use\": \"official\",\r\n            \"family\": \"пользователь3 2013-01-14T10 Updated\",\r\n            \"given\": [\r\n                \"пользователь3\",\r\n                \"пользович3\"\r\n            ]\r\n        },\r\n        \"gender\": \"other\",\r\n        \"birthDate\": \"2013-01-14T10:00\",\r\n        \"active\": true\r\n    },\r\n    {\r\n        \"name\": {\r\n            \"id\": \"8d83ed77-cb74-40c9-8f18-154a27d65889\",\r\n            \"use\": \"official\",\r\n            \"family\": \"пользователь4 2013-01-14T23:00 Updated\",\r\n            \"given\": [\r\n                \"пользователь4\",\r\n                \"пользович4\"\r\n            ]\r\n        },\r\n        \"gender\": \"unknown\",\r\n        \"birthDate\": \"2013-01-14T23:00\",\r\n        \"active\": true\r\n    }\r\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -259,14 +420,6 @@
 						"range"
 					]
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "GetByBirthday",
-			"request": {
-				"method": "GET",
-				"header": []
 			},
 			"response": []
 		}
